@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('DockerCompose up') {
       steps {
-        powershell 'docker-compose'
+        powershell 'Execute.ps1'
       }
     }
 
