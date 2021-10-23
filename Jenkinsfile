@@ -1,9 +1,10 @@
 pipeline {
   agent any
   stages {
-    stage('first step') {
+    stage('DockerCompose up') {
       steps {
         powershell 'docker-compose up'
+        powershell 'docker-compose down'
       }
     }
 
