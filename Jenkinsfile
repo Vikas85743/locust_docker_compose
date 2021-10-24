@@ -15,6 +15,12 @@ pipeline {
           }
         }
 
+        stage('Start Grafana') {
+          steps {
+            powershell '.\\GrafanaSetup.ps1'
+          }
+        }
+
       }
     }
 
