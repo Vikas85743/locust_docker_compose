@@ -17,10 +17,17 @@ pipeline {
 
         stage('Start Grafana') {
           steps {
-            powershell './GrafanaSetup.ps1'
+            powershell '.\\GrafanaSetup.ps1'
           }
         }
 
+      }
+    }
+
+    stage('Stop Locust Load test') {
+      steps {
+        sleep 300
+        powershell 'docker-compose down'
       }
     }
 
