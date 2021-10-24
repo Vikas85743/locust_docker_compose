@@ -6,7 +6,7 @@ services:
             - "8089:8089"
         volumes:
             - ./load_tests/:/mnt/locust
-        command: -f /mnt/locust/load_tests.py --headless -u 1 -r 1 --host https://jsonplaceholder.typicode.com
+        command: -f /mnt/locust/load_tests.py -H https://jsonplaceholder.typicode.com  -u 1 -r 1
 
     locust-metrics-exporter:
         image: containersol/locust_exporter
@@ -25,7 +25,4 @@ services:
             - --config.file=/etc/prometheus/prometheus.yml
         volumes:
             - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
-    grafana:
-        image: grafana/grafana
-        ports:
-            - "3000:3000"
+            

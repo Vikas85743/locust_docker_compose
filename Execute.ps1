@@ -1,5 +1,5 @@
 docker-compose up
 
-Start-Sleep -s 300
+#Start-Sleep -s 300
 
-docker-compose down
+#docker-compose down
