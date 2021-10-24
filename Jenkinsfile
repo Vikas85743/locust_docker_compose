@@ -3,16 +3,21 @@ pipeline {
   stages {
     stage('DockerCompose up') {
       parallel {
-        stage('DockerCompose up') {
+        stage('Setup Locust and Prometheus') {
           steps {
             powershell 'docker-compose up -d'
           }
         }
 
-        stage('Run Duration') {
+        stage('Start Locust Load test') {
           steps {
-            sleep 300
-            powershell 'docker-compose down'
+            powershell 'locust_swarm.ps1'
+          }
+        }
+
+        stage('Start Grafana') {
+          steps {
+            powershell 'GrafanaSetup.ps1'
           }
         }
 
