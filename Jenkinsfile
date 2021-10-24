@@ -11,13 +11,13 @@ pipeline {
 
         stage('Start Locust Load test') {
           steps {
-            powershell 'locust_swarm.ps1'
+            powershell '.\\locust_swarm.ps1'
           }
         }
 
         stage('Start Grafana') {
           steps {
-            powershell 'GrafanaSetup.ps1'
+            powershell './GrafanaSetup.ps1'
           }
         }
 
