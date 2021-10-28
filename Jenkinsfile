@@ -24,9 +24,14 @@ pipeline {
       }
     }
 
-    stage('Stop Locust Load test') {
+    stage('LoadTest Run Duration') {
       steps {
         sleep 300
+      }
+    }
+
+    stage('Stop Locust Load test') {
+      steps {
         powershell 'docker-compose down'
       }
     }
